@@ -4,28 +4,27 @@ using UnityEngine;
 
 public class Balloon : MonoBehaviour
 {
-    public int clickToPop = 3;//How many clicks to pop
-    public float scaleToIncrease = 0.1f; //Increase in size per click
+public float scaleToIncrease = 0.1f;
 
+    public int clickToPop = 3;
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-  void OnMouseDown(){
-    
-    clickToPop --; //clicks left to pop goes down by 1
-    
-    
-    //Balloon inflates
-    transform.localScale += Vector3.one * scaleToIncrease;
-    
+void OnMouseDown()
+{
+clickToPop --;
 
-    //Check to see if clickToPop is at 0
-    if (clickToPop == 0){
-            Destroy(gameObject);
-    }
-  }
+transform.localScale += Vector3.one * scaleToIncrease;
+
+if (clickToPop == 0)
+{
+    Destroy(gameObject);
+}
+
+
+}
+
 }
