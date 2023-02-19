@@ -26,7 +26,7 @@ public class SpawnManager : MonoBehaviour
     //declare x spawn pos
     Vector3 spawnPos = new Vector3(Random.Range(-xSpawnRange, xSpawnRange), ySpawnPos, 17);
     //Pick a random prefab
-    int powerUpIndex = Random.Range(-50, powerUpPrefabs.Length); 
+    int powerUpIndex = Random.Range(0, powerUpPrefabs.Length); 
 
     Instantiate(powerUpPrefabs[powerUpIndex], spawnPos, powerUpPrefabs[powerUpIndex].transform.rotation);
 }

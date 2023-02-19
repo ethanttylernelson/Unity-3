@@ -9,12 +9,18 @@ public class MoveUp : MonoBehaviour
 
     public float upperBound = -12;
 
-    public int playerScore;
-
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+    void OnTriggerEnter(Collider other) {
+        {
+                if(other.gameObject.CompareTag("Player"))
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -23,11 +29,5 @@ public class MoveUp : MonoBehaviour
         //Make the balloon float upward
         transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
 
-        if(transform.position.z < -12)
-        {
-            playerScore += 100;
-            Destroy(gameObject);
-            Debug.Log("Score: " + playerScore);
-        }
     }
 }

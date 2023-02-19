@@ -12,4 +12,6 @@ public float speed;
     {//literally makes it go forward lmao
        transform.Translate(Vector3.forward * Time.deltaTime * speed); 
     }
-}
+        
+    }
+
