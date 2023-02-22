@@ -10,11 +10,13 @@ public class SpawnManager : MonoBehaviour
 
     public float xSpawnRange;
 
-    public float ySpawnPos;
+    public float spawnPosZ;
+
+    
 
     public float startDelay = 0.5f;
 
-    public float spawnInterval = 1.5f;
+    public float spawnInterval = 10f;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,7 @@ public class SpawnManager : MonoBehaviour
    void SpawnRandomPowerUp()
    {
     //declare x spawn pos
-    Vector3 spawnPos = new Vector3(Random.Range(-xSpawnRange, xSpawnRange), ySpawnPos, 17);
+    Vector3 spawnPos = new Vector3(Random.Range(-xSpawnRange, xSpawnRange), 0, spawnPosZ);
     //Pick a random prefab
     int powerUpIndex = Random.Range(0, powerUpPrefabs.Length); 
 

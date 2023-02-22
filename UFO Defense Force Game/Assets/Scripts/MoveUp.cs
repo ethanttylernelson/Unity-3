@@ -20,6 +20,7 @@ public class MoveUp : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+        
         }
     }
 
