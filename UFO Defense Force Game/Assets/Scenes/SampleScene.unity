@@ -431,6 +431,7 @@ MonoBehaviour:
   xRange: 24
   blaster: {fileID: 1975387786}
   laserBolt: {fileID: 2729219957425290496, guid: 8b0adbe70a68d433597d3b54f4eba7b9, type: 3}
+  scoreManager: {fileID: 0}
 --- !u!65 &589366822
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -755,6 +756,9 @@ MonoBehaviour:
   - {fileID: 4962120009080235113, guid: 9a2ef6974d13f4665af39ccc5020c30e, type: 3}
   spawnRangeX: 17
   spawnPosZ: 30
+  hardMode: Hard Mode Activated
+  shipsDestroyed: 0
+  scoreManager: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,7 +1023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 100
-  amount: 100
+  amount: 0
   scoreText: {fileID: 981272721}
 --- !u!1 &1407628969
 GameObject:

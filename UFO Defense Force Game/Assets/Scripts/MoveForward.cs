@@ -14,7 +14,7 @@ void OnTriggerEnter(Collider other)
         {
             if(other.gameObject.CompareTag("Blaster"))
             {
-             enemySpawner.ShipDestroyed(shipsDestroyed);
+             enemySpawner.shipsDestroyed += 1;
             }
         }
     // Update is called once per frame

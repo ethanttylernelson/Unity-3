@@ -11,8 +11,10 @@ public class PlayerController : MonoBehaviour
     public Transform blaster;
 
     public GameObject laserBolt;
+
+    public ScoreManager scoreManager;
     // Start is called before the first frame update
-    
+  
 
     // Update is called once per frame
     void Update()
@@ -46,7 +48,8 @@ public class PlayerController : MonoBehaviour
         Destroy(other.gameObject);
          if(other.gameObject.CompareTag("Enemy"))
             {
-               SceneManager.
+             Time. timeScale = 0;
+             Debug.Log("Game Over");
             }
     }
    

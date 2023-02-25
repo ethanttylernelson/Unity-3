@@ -21,16 +21,7 @@ public ScoreManager scoreManager;
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
         InvokeRepeating("SpawnRandomEnemy", startDelay, spawnInterval);
     }
-public void ShipDestroyed()
-{
-    void OnTriggerEnter(Collider other)
-        {
-            if(other.gameObject.CompareTag("Blaster"))
-            {
-                shipsDestroyed += 1;
-            }
-        }
-}
+
     void SpawnRandomEnemy()
     {
         Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
@@ -47,14 +38,6 @@ public void ShipDestroyed()
             spawnInterval +=5;
         }
     }
-    void Update() {
-        {
-
-            if (shipsDestroyed > 20)
-            {
-                HardMode();
-            }
-        }
-    }
+   
 
 }
