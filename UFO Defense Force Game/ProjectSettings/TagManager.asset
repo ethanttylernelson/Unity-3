@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Blaster
   - PowerUp
+  - Enemy
   layers:
   - Default
   - TransparentFX

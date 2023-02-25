@@ -4,14 +4,28 @@ using UnityEngine;
 
 public class MoveForward : MonoBehaviour
 {
+    public int shipsDestroyed;
+   public EnemySpawner enemySpawner;
 public float speed;
-
-
+void Start() {
+     enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+}
+void OnTriggerEnter(Collider other)
+        {
+            if(other.gameObject.CompareTag("Blaster"))
+            {
+             enemySpawner.ShipDestroyed(shipsDestroyed);
+            }
+        }
     // Update is called once per frame
     void Update()
-    {//literally makes it go forward lmao
+    {//literally makes it go forward
        transform.Translate(Vector3.forward * Time.deltaTime * speed); 
+       
+
+   }
+       
     }
         
-    }
+    
 

@@ -7,10 +7,6 @@ public class DetectPowerUp : MonoBehaviour
     public int scoreToGive = 100;
     private int score;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
         private void IncreaseScore()
     {

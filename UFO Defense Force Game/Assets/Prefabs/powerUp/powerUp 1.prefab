@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3662966376403146907}
   - component: {fileID: 3393733812066486071}
   - component: {fileID: 6563517165899685086}
+  - component: {fileID: -9058904449979750516}
   m_Layer: 0
   m_Name: powerUp 1
   m_TagString: PowerUp
@@ -129,3 +130,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   upperBound: -12
+--- !u!114 &-9058904449979750516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6884621127619548780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25766bf02be8496b94ce24792aa2a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topBounds: 30
+  lowerBounds: -20
