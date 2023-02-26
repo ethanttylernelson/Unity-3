@@ -30,8 +30,8 @@ public class DestroyOutOfBounds : MonoBehaviour
         }
         else if(transform.position.z < lowerBounds)
         {
-            scoreManager.DecreaseScore(100);//.detects collision
             Destroy(gameObject);
+            scoreManager.DecreaseScore(10);
             //Time.timeScale = 0;
         }
     }

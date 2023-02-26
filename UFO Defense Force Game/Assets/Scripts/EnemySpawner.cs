@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class EnemySpawner : MonoBehaviour
 {
 public GameObject[] enemyPrefabs;
-
+ [SerializeField]
+private int sceneToLoad;
 [SerializeField]
 private float spawnRangeX = 17f;
 [SerializeField]
 private float spawnPosZ;
-public string hardMode = "Hard Mode Activated";
 private float startDelay = 2f;
-private float spawnInterval = 2f;
+private float spawnInterval = .3f;
 public int shipsDestroyed;
 public ScoreManager scoreManager;
     // Start is called before the first frame update
@@ -20,8 +20,15 @@ public ScoreManager scoreManager;
     {
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
         InvokeRepeating("SpawnRandomEnemy", startDelay, spawnInterval);
+        scoreManager.DecreaseScore(10000);
     }
+void Update(){
+    if (scoreManager.score >= 5000){
+        Debug.Log("You Win!");
+        SceneManager.LoadScene(sceneToLoad);
 
+    }
+}
     void SpawnRandomEnemy()
     {
         Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
@@ -31,13 +38,6 @@ public ScoreManager scoreManager;
         Instantiate(enemyPrefabs[enemyIndex], spawnPos, enemyPrefabs[enemyIndex]. transform.rotation);
 
     }
-    void HardMode()
-    {
-        if(shipsDestroyed > 20)
-        {
-            spawnInterval +=5;
-        }
-    }
-   
+
 
 }

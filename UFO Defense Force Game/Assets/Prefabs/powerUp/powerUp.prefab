@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 3651499002576289844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.43431, y: 0.43431, z: 0.43431}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -116,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   upperBound: -12
+  playerController: {fileID: 0}
 --- !u!54 &-7404801101237228105
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -131,7 +132,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!138 &-1628148015372674469
 FixedJoint:
   m_ObjectHideFlags: 0
@@ -161,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   upperBound: -12
+  playerController: {fileID: 0}
 --- !u!114 &-5861885171313759018
 MonoBehaviour:
   m_ObjectHideFlags: 0

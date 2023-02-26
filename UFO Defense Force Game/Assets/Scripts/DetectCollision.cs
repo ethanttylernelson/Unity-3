@@ -5,13 +5,14 @@ using UnityEngine;
 public class DetectCollision : MonoBehaviour
 {
     public ScoreManager scoreManager;
-
+    public EnemySpawner enemySpawner;
     public int scoreToGive;
     public int score;
     // Start is called before the first frame update
     void Start()
     {
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
+         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
     }
 
     // Update is called once per fram
@@ -21,9 +22,10 @@ public class DetectCollision : MonoBehaviour
             {
                 Destroy(gameObject);
                 Destroy(other.gameObject);
+                scoreManager.IncreaseScore(scoreToGive);
             }
 
-            scoreManager.IncreaseScore(scoreToGive);
+            
 
         }
         //Explosion();

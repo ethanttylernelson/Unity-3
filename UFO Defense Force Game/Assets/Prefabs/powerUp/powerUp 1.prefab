@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3393733812066486071}
   - component: {fileID: 6563517165899685086}
   - component: {fileID: -9058904449979750516}
+  - component: {fileID: 819937290313291848}
   m_Layer: 0
   m_Name: powerUp 1
   m_TagString: PowerUp
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 6884621127619548780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.43431, y: 0.43431, z: 0.43431}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -115,7 +116,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &6563517165899685086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   upperBound: -12
+  playerController: {fileID: 0}
 --- !u!114 &-9058904449979750516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,3 +146,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topBounds: 30
   lowerBounds: -20
+--- !u!114 &819937290313291848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6884621127619548780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f471525ef17643bb8d74789297b4791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}

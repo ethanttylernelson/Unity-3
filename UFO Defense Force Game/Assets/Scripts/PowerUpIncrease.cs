@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectPowerUp : MonoBehaviour
+public class PowerUpIncrease : MonoBehaviour
 {
-    public ScoreManager scoreManager;
+     public ScoreManager scoreManager;
     // Start is called before the first frame update
 void Start()
 {
@@ -14,10 +14,10 @@ void Start()
 
     // Update is called once per frame
      void OnCollisionEnter(Collision other) {
-          if(other.gameObject.CompareTag("PowerUp"))
+          if(other.gameObject.CompareTag("Player"))
            {
             scoreManager.IncreaseScore(1000);
-                Destroy(other.gameObject);
+                Destroy(gameObject);
                 
           }   
     }
