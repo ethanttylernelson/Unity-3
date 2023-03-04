@@ -10,10 +10,15 @@ public class PlayerController : MonoBehaviour
     public float xRange;
     [SerializeField]
     private int sceneToLoad;
+    public AudioSource blasterAudio;
+    public AudioClip laserBlast;
+    public AudioClip powerUp;
  public ScoreManager scoreManager;
     // Start is called before the first frame update
 void Start()
 {
+    //call the audio source
+    blasterAudio = GetComponent<AudioSource>();
     scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
 }
        
@@ -51,6 +56,7 @@ void Start()
         if(Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(laserBolt, blaster.position, laserBolt.transform.rotation);
+            blasterAudio.PlayOneShot(laserBlast,1.0f);
         }
 }
     
@@ -66,7 +72,7 @@ void Start()
            {
             scoreManager.IncreaseScore(1000);
                 Destroy(other.gameObject);
-        
+        blasterAudio.PlayOneShot(powerUp,1.0f);
             }
    
     }

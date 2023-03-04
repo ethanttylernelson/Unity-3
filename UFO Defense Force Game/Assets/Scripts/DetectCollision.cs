@@ -8,11 +8,15 @@ public class DetectCollision : MonoBehaviour
     public EnemySpawner enemySpawner;
     public int scoreToGive;
     public int score;
+    public AudioClip explodeSound;
+    public AudioSource blasterAudio;
+    public ParticleSystem explosionParticle;
     // Start is called before the first frame update
     void Start()
     {
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
          enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+         blasterAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per fram
@@ -23,14 +27,19 @@ public class DetectCollision : MonoBehaviour
                 Destroy(gameObject);
                 Destroy(other.gameObject);
                 scoreManager.IncreaseScore(scoreToGive);
+                Explosion();
+                blasterAudio.PlayOneShot(explodeSound,1.0f);
             }
-
+               
             
 
         }
-        //Explosion();
-            //scoreManager.IncreaseScore(scoreToGive);
-            //Destroy(other.gameObject);
-            //Destroy(gameObject);
+        void Explosion()//yay
+        {
+            Instantiate(explosionParticle, transform.position, transform.rotation);
+            explosionParticle.Play();
+        }
+
+
     }
 
