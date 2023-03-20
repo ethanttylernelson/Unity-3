@@ -81,6 +81,16 @@ public bool doubleJump;
             rb.velocity = Vector2.up * jumpForce;
         }
     }
+  void OnTriggerEnter(Collider other) 
+  {
+    if (other.gameObject.CompareTag("PowerUp"))
+    {
+        jumpForce +=5;
+        Destroy(other.gameObject);
+    }
+  }
 
 
+    //If your GameObject keeps colliding with another GameObject with a Collider, do something
+   
 }
