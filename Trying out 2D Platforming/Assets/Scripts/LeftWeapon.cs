@@ -2,28 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangedWeapon : MonoBehaviour
+public class LeftWeapon : MonoBehaviour
 {
-
-    public Transform firePoint;
-    public GameObject projectile;
+ public Transform leftPoint;
+    public GameObject leftProjectile;
     // Start is called before the first frame update
+
+
     void Update()
     {
-        if(Input.GetKey(KeyCode.F))
+        if(Input.GetKey(KeyCode.D))
        {
-        Shoot();
+        ShootLeft();
        } 
     }
 
-    void Shoot()
+    void ShootLeft()
     {
-        Instantiate(projectile, firePoint.position, firePoint.rotation);
-        //if (playerController.isFacingRight == false)
+        Instantiate(leftProjectile, leftPoint.position, leftPoint.rotation);
+       //if (playerController.isFacingRight == false)
            // {
             //    Instantiate(projectile, leftPoint.position, leftPoint.rotation);
            // }
         }
-
-    
 }
