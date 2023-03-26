@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class LeftProjectile : MonoBehaviour
 {
-
-    public float speed = 30.0f;
+     public float speed = 30.0f;
 
     public int damage = 1;
+
 
     private Rigidbody2D rb;
 
@@ -20,7 +20,10 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = transform.right * speed * 100 * Time.deltaTime;
+        rb.velocity = transform.left * speed * 100 * Time.deltaTime;
+        //transform.position = new Vector3(-10, 0, 0) * Time.deltaTime;
+        //rb.velocity = transform.translate.(10, 0, 0) * speed * 100 * Time.deltaTime;
+     
     }
 
     void OnTriggerEnter2D(Collider2D other) 
@@ -35,5 +38,4 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
 
         }
-    
 }
