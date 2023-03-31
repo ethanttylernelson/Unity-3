@@ -7,10 +7,15 @@ public class RangedWeapon : MonoBehaviour
 
     public Transform firePoint;
     public GameObject projectile;
+    public PlayerController player;
     // Start is called before the first frame update
+    void Start()
+    {
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
+    }
     void Update()
     {
-        if(Input.GetKey(KeyCode.F))
+        if(Input.GetKeyDown(KeyCode.F))
        {
         Shoot();
        } 
@@ -18,12 +23,7 @@ public class RangedWeapon : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(projectile, firePoint.position, firePoint.rotation);
-        //if (playerController.isFacingRight == false)
-           // {
-            //    Instantiate(projectile, leftPoint.position, leftPoint.rotation);
-           // }
-        }
-
-    
+      Instantiate(projectile, firePoint.position, firePoint.rotation);
+   
+    }
 }
