@@ -11,17 +11,43 @@ public class Projectile : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public PlayerController player;
+
+    public float rightBounds;
+
+    public float leftBounds;
+
     // Start is called before the first frame update
     void Start()
     {
        rb = GetComponent<Rigidbody2D>(); 
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        if(player.isFacingRight == true)
+        {
+            rb.velocity = transform.right * speed * 100 * Time.deltaTime;
+        }
+        else if(player.isFacingRight == false)
+        {
+            rb.velocity = transform.right * -speed * 100 * Time.deltaTime;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = transform.right * speed * 100 * Time.deltaTime;
+        
+       if(transform.position.x > rightBounds)
+        {
+            Destroy(gameObject);
+        }
+        else if(transform.position.x > leftBounds)
+        {
+            Destroy(gameObject);
+        }
+ 
     }
+
+
 
     void OnTriggerEnter2D(Collider2D other) 
     

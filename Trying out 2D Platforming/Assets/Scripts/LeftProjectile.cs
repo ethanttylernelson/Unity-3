@@ -20,9 +20,11 @@ public class LeftProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = transform.left * speed * 100 * Time.deltaTime;
+        rb.velocity = transform.right * speed * 100 * Time.deltaTime;
         //transform.position = new Vector3(-10, 0, 0) * Time.deltaTime;
         //rb.velocity = transform.translate.(10, 0, 0) * speed * 100 * Time.deltaTime;
+
+        
      
     }
 
