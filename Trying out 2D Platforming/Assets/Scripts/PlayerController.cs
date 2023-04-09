@@ -31,24 +31,37 @@ public float checkRadius;
 public LayerMask putGroundHere;
 
 public bool doubleJump;
+
+[Header ("Animations")]
+
+private Animator playerAnim; //calls the animator
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerAnim = GetComponent<Animator>();
     }
 
 
 
-    void FixedUpdate() {
-        {
+    void FixedUpdate()
+     {     
+        if(moveInput > 0 || moveInput < 0)
+            {
+                playerAnim.SetBool("isWalking", true);
+            }
+            else
+            {
+                playerAnim.SetBool("isWalking", false);
+            }
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, putGroundHere);
 
             moveInput = Input.GetAxis("Horizontal");
             rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-        }
+            playerAnim.SetBool("isWalking", true);
 
 
-        if (!isFacingRight && moveInput < 0)
+        if (!isFacingRight && moveInput > 0)
         {
             FlipPlayer();
         }
@@ -67,6 +80,9 @@ public bool doubleJump;
     // Update is called once per frame
     void Update()
     {
+         
+        //split here
+
         if(isGrounded)
         {
             doubleJump = true;
@@ -79,6 +95,7 @@ public bool doubleJump;
         else if (Input.GetKeyDown(KeyCode.Space) && !doubleJump && isGrounded)
         {
             rb.velocity = Vector2.up * jumpForce;
+            //playerAnim..SetTrigger("Jump_Trigx")
         }
     }
   

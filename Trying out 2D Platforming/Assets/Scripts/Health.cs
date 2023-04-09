@@ -1,13 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
 
     public int maxHealth = 10;
 
     public int currentHealth;
+
+    public int numberOfHearts;
+
+    public Image[] hearts;
+
+    public Sprite bigHeart;
+
+    public Sprite smallHeart;
+
+    public int dagAmount = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +39,30 @@ public void TakeDamage(int dagAmount)
     // Update is called once per frame
     void Update()
     {
-        
+        if(currentHealth > numberOfHearts)
+        {
+            currentHealth = numberOfHearts;
+        }
+
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if(i < currentHealth)
+            {
+                hearts[i].sprite = bigHeart;
+            }
+            else
+            {
+                hearts[i].sprite = smallHeart;
+            }
+            if(i < numberOfHearts)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
+        }
     }
 
     public void AddHealth(int healAmount)
@@ -40,5 +73,10 @@ public void TakeDamage(int dagAmount)
         {
             currentHealth = maxHealth;
         }
+    }
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        TakeDamage(dagAmount);
+        Debug.Log("Player Takes "+ dagAmount + "points of damage!");
     }
 }
