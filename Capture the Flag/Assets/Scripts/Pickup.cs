@@ -25,7 +25,6 @@ public class Pickup : MonoBehaviour
     // Get audio for pickup
     public AudioClip pickupSFX;
 
-    // Start is called before the first frame update
     void Start()
     {
        startPos = transform.position; 
@@ -52,17 +51,12 @@ public class Pickup : MonoBehaviour
               break;
           } 
           
-          //Reference Audio Source to play sound effect
-          //other.GetComponent<AudioSource>().PlayOneShot(pickupSFX);
 
-          //Destroy Pickup
           Destroy(gameObject); 
         }
     }
-    // Update is called once per frame
     void Update()
     {
-        // Rotates the pickup around the Y-Axis        
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
 
         Vector3 offset = (bobbingUp == true ? new Vector3(0, bobHeight / 2, 0) : new Vector3(0, -bobHeight / 2, 0));
