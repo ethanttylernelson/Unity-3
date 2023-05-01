@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
     
     private Camera camera;
     private Rigidbody rb;
+
+    public int amount = 1;
+    public int healthAmount;
+    public int ammoAmount;
    
     //private Weapon weapon;
 
@@ -64,5 +68,28 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+    }
+    
+    public void GiveHealth(int amount)
+    {
+        healthAmount += amount;
+    }
+
+    public void GiveAmmo(int amount)
+    {
+        ammoAmount += amount;
+    }
+
+    public void TakeDamage(int amount)
+    {
+        healthAmount -= amount;
+    }
+
+    void Update()
+    {
+        Move();
+        CamLook();
+        if (Input.GetButtonDown("Jump"))
+        Jump();      
     }
 }
